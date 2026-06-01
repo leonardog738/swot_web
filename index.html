@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Connect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+    <!-- Plano de fundo estrelado -->
+    <div class="estrelas-mascara">
+        <canvas id="estrelas" aria-hidden="true"></canvas>
+    </div>
+    <div class="nebulosa nebulosa-1" aria-hidden="true"></div>
+    <div class="nebulosa nebulosa-2" aria-hidden="true"></div>
+    <div class="nebulosa nebulosa-3" aria-hidden="true"></div>
+    <div class="scan" aria-hidden="true"></div>
+
+    <!-- ══════════ NAVEGAÇÃO ══════════ -->
+    <nav aria-label="Navegação principal">
+        <a href="#hero">Início</a>
+        <a href="#problema">Problema</a>
+        <a href="#tecnologia">Tecnologia</a>
+        <a href="#objetivos">Objetivos</a>
+        <a href="#publico">Público</a>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#aplicacao">Aplicação</a>
+    </nav>
+
+    <!-- ══════════ HERO ══════════ -->
+    <section class="hero" id="hero" aria-label="Apresentação do projeto Space Connect">
+
+        <div class="title-block">
+        <div class="badge-projeto">Space Connect</div>
+        <h1>SWOT</h1>
+        <div class="subtitle">A sua segurança em um único lugar</div>
+        <p class="hero-desc">Dados do satélite NASA/CNES transformados em alertas de enchente para gestores públicos.</p>
+        </div>
+
+        <div class="satellite-stage" aria-hidden="true">
+        <div class="anel anel-1"></div>
+        <div class="anel anel-2"></div>
+        <div class="anel anel-3"></div>
+        <img class="satellite-img" src="src/assets/imgs/SWOT_spacecraft_model.png" alt="Modelo 3D do satélite SWOT da NASA e CNES">
+        </div>
+
+        <div class="earth-container">
+        <img class="earth-img" src="src/assets/imgs/terra.png" alt="Borda da Terra vista do espaço">
+        </div>
+
+        <div class="indicador-scroll" id="indicador-scroll" aria-label="Role para explorar">
+        <div class="scroll-box">
+            <div class="linhas-laterais">
+            <div class="linha"></div>
+            <div class="ponto"></div>
+            <span class="texto-scroll">Role para explorar</span>
+            <div class="ponto"></div>
+            <div class="linha"></div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+        
+    
+</body>
+</html>

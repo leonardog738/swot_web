@@ -1,0 +1,458 @@
+@import url("efeitos.css");
+
+/* ══════════════════════════════════════════
+   RESET CSS
+══════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ══════════════════════════════════════════
+   VARIÁVEIS CSS
+══════════════════════════════════════════ */
+:root {
+  /* Cores principais */
+  --deep:          #02020a;
+  --surface:       #0a0a18;
+  --surface-alt:   #0d0d1f;
+
+  /* Cores de destaque */
+  --glow-blue:     #2563ff;
+  --glow-violet:   #7c3aed;
+  --glow-cyan:     #06b6d4;
+  --glow-teal:     #14b8a6;
+  --glow-red:      #ef4444;
+
+  /* Texto */
+  --text-primary:  #f0f0f8;
+  --text-muted:    rgba(255, 255, 255, 0.35);
+
+  /* Bordas */
+  --border-glow:   rgba(6, 182, 212, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.04);
+
+  /* Fontes */
+  --font-display:  'Syne', sans-serif;
+  --font-mono:     'DM Mono', monospace;
+
+  /* Espaçamentos */
+  --gap-sm:   12px;
+  --gap-md:   20px;
+  --gap-lg:   40px;
+  --gap-xl:   60px;
+  --gap-2xl:  100px;
+
+  /* Bordas arredondadas */
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-full: 999px;
+}
+
+/* ══════════════════════════════════════════
+   BASE
+══════════════════════════════════════════ */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: var(--deep);
+  overflow-x: hidden;
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 999;
+  mix-blend-mode: overlay;
+}
+
+/* ══════════════════════════════════════════
+   FUNDO: ESTRELAS
+══════════════════════════════════════════ */
+.estrelas-mascara {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  transition: opacity 0.4s;
+}
+
+canvas#estrelas {
+  width: 100%;
+  height: 100%;
+}
+
+/* ══════════════════════════════════════════
+   FUNDO: NEBULOSAS
+══════════════════════════════════════════ */
+.nebulosa {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.nebulosa-1 {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.18) 0%, transparent 70%);
+  top: 35%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  animation: nebulosaPulse 12s ease-in-out infinite alternate;
+}
+
+.nebulosa-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
+  top: 70%;
+  left: 70%;
+  animation: nebulosaPulse 15s ease-in-out infinite alternate-reverse;
+}
+
+.nebulosa-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(37, 99, 255, 0.1) 0%, transparent 70%);
+  top: 15%;
+  left: 20%;
+  animation: nebulosaPulse 10s ease-in-out infinite alternate;
+}
+
+/* ══════════════════════════════════════════
+   SCAN LINE
+══════════════════════════════════════════ */
+.scan {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  z-index: 200;
+  animation: scan 8s linear infinite;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════════
+   NAVEGAÇÃO
+══════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 22px 0;
+  z-index: 100;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  background: linear-gradient(to bottom, rgba(2, 2, 10, 0.7), transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+nav a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.25s;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--glow-cyan);
+  transform: scaleX(0);
+  transition: transform 0.25s;
+}
+
+nav a:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 50px;
+  overflow: hidden;
+}
+
+/* Badge do projeto */
+.badge-projeto {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--glow-cyan);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: var(--radius-full);
+  padding: 6px 18px;
+  margin-bottom: 16px;
+  background: rgba(6, 182, 212, 0.06);
+}
+
+/* Bloco de título */
+.title-block {
+  text-align: center;
+  position: relative;
+  z-index: 20;
+  margin-top: 30px;
+  animation: fadeDown 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.title-block h1 {
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  background: linear-gradient(180deg, #ffffff 30%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hero-desc {
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.3);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Satélite */
+.satellite-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(580px, 88vw);
+  height: min(440px, 62vw);
+  z-index: 25;
+  animation: floatUp 1.3s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+/* Anéis de órbita */
+.anel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 1px solid rgba(6, 182, 212, 0.06);
+  transform: translate(-50%, -50%);
+  animation: girarAnel 20s linear infinite;
+}
+
+.anel-1 {
+  width: 110%;
+  height: 110%;
+  animation-duration: 20s;
+}
+
+.anel-2 {
+  width: 130%;
+  height: 130%;
+  border-color: rgba(124, 58, 237, 0.04);
+  animation-duration: 30s;
+  animation-direction: reverse;
+}
+
+.anel-3 {
+  width: 155%;
+  height: 155%;
+  border-color: rgba(37, 99, 255, 0.03);
+  animation-duration: 45s;
+}
+
+.satellite-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72%;
+  height: auto;
+  filter: drop-shadow(0 0 40px rgba(124, 58, 237, 0.35));
+  animation: flutuar 5s ease-in-out infinite alternate;
+}
+
+/* Terra */
+.earth-container {
+  position: fixed;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  z-index: 20;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.earth-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* ══════════════════════════════════════════
+   INDICADOR DE SCROLL
+══════════════════════════════════════════ */
+.indicador-scroll {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 160;
+  opacity: 0;
+  animation: scrollAparecer 0.8s ease 1.8s forwards;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.indicador-scroll.oculto {
+  opacity: 0 !important;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(10px);
+}
+
+.scroll-box {
+  padding: 14px 32px 12px;
+  background: rgba(6, 182, 212, 0.06);
+  border: 1px solid rgba(6, 182, 212, 0.15);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+  animation: scrollFlutuar 3s ease-in-out 2.6s infinite;
+}
+
+.scroll-box::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: conic-gradient(from 0deg, transparent 0%, rgba(6, 182, 212, 0.3) 25%, transparent 50%, rgba(124, 58, 237, 0.2) 75%, transparent 100%);
+  z-index: -1;
+  animation: glowGirar 4s linear infinite;
+  filter: blur(2px);
+}
+
+.scroll-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: rgba(2, 2, 10, 0.85);
+  z-index: -1;
+}
+
+.linhas-laterais {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.linhas-laterais .linha {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent);
+}
+
+.linhas-laterais .ponto {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--glow-cyan);
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+  animation: pontoPulsar 1.5s ease-in-out infinite;
+}
+
+.texto-scroll {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVO
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  nav {
+    gap: 16px;
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
+    flex-wrap: wrap;
+    padding: 18px 16px;
+  }
+
+  .indicador-scroll {
+    bottom: 28px;
+  }
+
+  .scroll-box {
+    padding: 12px 22px 10px;
+  }
+}
