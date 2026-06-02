@@ -822,8 +822,74 @@ nav a:hover::after {
 }
  
 /* ══════════════════════════════════════════
-   RESPONSIVO GERAL — Space Connect
-   Centraliza todos os breakpoints do projeto
+   SEÇÃO 4: PÚBLICO-ALVO
+══════════════════════════════════════════ */
+ 
+.grade-publico {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-md);
+}
+ 
+.publico-card {
+  flex: 1 1 calc(25% - var(--gap-md));
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 28px 22px;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+  opacity: 0;
+  animation: cartaoRevelar 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+ 
+.publico-card:nth-child(1) { animation-delay: 0.1s; }
+.publico-card:nth-child(2) { animation-delay: 0.2s; }
+.publico-card:nth-child(3) { animation-delay: 0.3s; }
+.publico-card:nth-child(4) { animation-delay: 0.4s; }
+ 
+.publico-card:hover {
+  border-color: var(--border-glow);
+  transform: translateY(-3px);
+}
+ 
+.publico-icone {
+  font-size: 32px;
+  margin-bottom: 14px;
+  display: block;
+}
+ 
+.publico-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+ 
+.publico-card p {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 14px;
+}
+ 
+.publico-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--glow-teal);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+  border-radius: var(--radius-full);
+  padding: 4px 12px;
+  background: rgba(20, 184, 166, 0.05);
+}
+ 
+/* ══════════════════════════════════════════
+   RESPONSIVO GERAL 
 ══════════════════════════════════════════ */
 
 /* ── 900px ─────────────────────────────── */
@@ -836,6 +902,10 @@ nav a:hover::after {
 
   .obj-card {
     flex: 1 1 100%;
+  }
+  
+  .publico-card {
+    flex: 1 1 calc(50% - var(--gap-md));
   }
 }
 
@@ -890,5 +960,8 @@ nav a:hover::after {
     transform: rotate(90deg);
     padding: 0;
     margin-left: 52px;
+  }
+   .publico-card {
+    flex: 1 1 100%;
   }
 }
