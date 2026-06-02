@@ -1023,6 +1023,300 @@ nav a:hover::after {
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.4);
 }
+
+/* ══════════════════════════════════════════
+   RODAPÉ — Space Connect
+══════════════════════════════════════════ */
+ 
+.rodape-wrapper {
+  position: relative;
+  z-index: 50;
+  overflow: hidden;
+}
+ 
+/* Canvas de estrelas exclusivo do rodapé */
+.rodape-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+ 
+/* Nebulosa decorativa no rodapé */
+.rodape-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+  bottom: -60px;
+  left: 20%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(60px);
+}
+ 
+.rodape-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  background: radial-gradient(ellipse, rgba(6, 182, 212, 0.08) 0%, transparent 70%);
+  top: -40px;
+  right: 15%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(50px);
+}
+ 
+/* Borda superior com gradiente */
+.rodape-borda-top {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(6, 182, 212, 0.15) 20%,
+    rgba(124, 58, 237, 0.3) 50%,
+    rgba(6, 182, 212, 0.15) 80%,
+    transparent 100%
+  );
+}
+ 
+/* Linha de varredura animada no topo do rodapé */
+.rodape-borda-top::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.6), transparent);
+  animation: rodapeVarredura 4s ease-in-out infinite;
+}
+ 
+/* Rodapé principal */
+.rodape {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--gap-lg);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px var(--gap-lg) 40px;
+}
+ 
+/* ── Logo central ── */
+.rodape-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  padding: 20px 0;
+}
+ 
+/* Anel orbita ao redor da imagem */
+.rodape-logo-anel {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -56%);
+}
+ 
+/* Imagem do satélite flutua levemente */
+.rodape-logo img.satellite-img {
+  animation: flutuar 5s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 20px rgba(124, 58, 237, 0.4));
+  display: block;
+}
+ 
+.rodape-logo-nome {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(180deg, #ffffff 20%, rgba(6, 182, 212, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 4px;
+}
+ 
+.rodape-logo-sub {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+}
+ 
+/* Anel decorativo ao redor do satélite */
+.rodape-logo-anel {
+  border-radius: 50%;
+  border: 1px solid rgba(6, 182, 212, 0.1);
+  animation: girarAnel 25s linear infinite;
+}
+ 
+.rodape-logo-anel::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--glow-cyan);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+ 
+/* ── Lado esquerdo: equipe ── */
+.rodape-equipe {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+ 
+.rodape-titulo {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--glow-cyan);
+  opacity: 0.6;
+}
+ 
+.rodape-membros {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+ 
+.rodape-membro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+ 
+.rodape-membro-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(6, 182, 212, 0.4);
+  flex-shrink: 0;
+}
+ 
+.rodape-membros span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.05em;
+  transition: color 0.25s;
+}
+ 
+.rodape-membros span:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+ 
+/* ── Lado direito: info + links ── */
+.rodape-info {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-end;
+}
+ 
+.rodape-fiap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+}
+ 
+.rodape-fiap-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--glow-violet);
+  opacity: 0.6;
+}
+ 
+.rodape-fiap-texto {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.08em;
+}
+ 
+.rodape-links {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+ 
+.rodape-links a {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+ 
+.rodape-links a::after {
+  content: '↗';
+  font-size: 9px;
+  opacity: 0.5;
+  transition: opacity 0.25s, transform 0.25s;
+}
+ 
+.rodape-links a:hover {
+  color: var(--glow-cyan);
+}
+ 
+.rodape-links a:hover::after {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+ 
+/* ── Barra de copyright ── */
+.rodape-copy {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px var(--gap-lg) 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.rodape-copy span {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.1);
+}
  
 /* ══════════════════════════════════════════
    RESPONSIVO GERAL 
@@ -1042,6 +1336,15 @@ nav a:hover::after {
 
   .publico-card {
     flex: 1 1 calc(50% - var(--gap-md));
+  }
+   .rodape {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+ 
+  .rodape-logo {
+    grid-column: 1 / -1;
+    margin-bottom: 10px;
   }
 }
 
@@ -1104,5 +1407,27 @@ nav a:hover::after {
 
   .ben-card {
     flex: 1 1 100%;
+  }
+  .rodape {
+    grid-template-columns: 1fr;
+    padding: 40px 24px 28px;
+    gap: var(--gap-md);
+  }
+ 
+  .rodape-logo {
+    margin-bottom: 0;
+  }
+ 
+  .rodape-info {
+    text-align: left;
+    align-items: flex-start;
+  }
+ 
+  .rodape-links {
+    justify-content: flex-start;
+  }
+ 
+  .rodape-copy {
+    padding: 12px 24px 24px;
   }
 }
