@@ -120,6 +120,80 @@
 
       </div>
     </section>
+
+    <div class="divisor" aria-hidden="true"></div>
+
+     <!-- ── SEÇÃO 2: TECNOLOGIA ── -->
+    <section class="secao" id="tecnologia" aria-labelledby="titulo-tecnologia">
+        <span class="secao-rotulo">02 — Tecnologia</span>
+        <h2 id="titulo-tecnologia">Stack do Space Connect</h2>
+        <p class="sub-h2">Tecnologias abertas e gratuitas integradas para monitoramento hidrológico em tempo real.</p>
+        <div class="linha-destaque"></div>
+
+        <div class="grade-2x2">
+
+            <div class="card card-roxo">
+            <span class="card-icone" aria-hidden="true"><img  style="width: 25px; height: 25px;" src="src/assets/imgs/icone-python.png" alt="Python"></span>
+            <h3>Python</h3>
+            <p>Linguagem principal para ciência de dados, automação do pipeline e modelos preditivos.</p>
+            </div>
+
+            <div class="card card-roxo">
+            <span class="card-icone" aria-hidden="true"><img  style="width: 25px; height: 25px;" src="src/assets/imgs/icone-earthaccess.png" alt="earthaccess"></span>
+            <h3>earthaccess</h3>
+            <p>Biblioteca oficial da NASA para autenticação e download de dados via Earthdata.</p>
+            </div>
+
+            <div class="card card-roxo">
+            <span class="card-icone" aria-hidden="true"><img  style="width: 25px; height: 25px;" src="src/assets/imgs/icone-antena.png" alt="Hydrocron"></span>
+            <h3>Hydrocron API</h3>
+            <p>API do PO.DAAC para séries temporais hidrológicas do SWOT em CSV e GeoJSON.</p>
+            </div>
+
+            <div class="card card-roxo">
+            <span class="card-icone" aria-hidden="true"><img  style="width: 25px; height: 25px;" src="src/assets/imgs/icone-postgis.png" alt="PostGIS"></span>
+            <h3>PostGIS</h3>
+            <p>Armazenamento e análise geoespacial avançada dos dados hidrológicos coletados.</p>
+            </div>
+
+        </div>
+
+        <!-- Pipeline visual -->
+        <div class="pipeline" aria-label="Fluxo de dados do sistema">
+            <div class="pipe-etapa">
+            <span class="pipe-icone" aria-hidden="true">🛰️</span>
+            <div class="pipe-nome">SWOT</div>
+            <div class="pipe-detalhe">NASA/CNES</div>
+            </div>
+            <div class="pipe-seta" aria-hidden="true">→</div>
+            <div class="pipe-etapa">
+            <span class="pipe-icone" aria-hidden="true">🔑</span>
+            <div class="pipe-nome">earthaccess</div>
+            <div class="pipe-detalhe">Auth & Download</div>
+            </div>
+            <div class="pipe-seta" aria-hidden="true">→</div>
+            <div class="pipe-etapa">
+            <span class="pipe-icone" aria-hidden="true">📊</span>
+            <div class="pipe-nome">Hydrocron</div>
+            <div class="pipe-detalhe">Séries temporais</div>
+            </div>
+            <div class="pipe-seta" aria-hidden="true">→</div>
+            <div class="pipe-etapa">
+            <span class="pipe-icone" aria-hidden="true">🗄️</span>
+            <div class="pipe-nome">PostGIS</div>
+            <div class="pipe-detalhe">Armazenamento</div>
+            </div>
+            <div class="pipe-seta" aria-hidden="true">→</div>
+            <div class="pipe-etapa">
+            <span class="pipe-icone" aria-hidden="true">🚨</span>
+            <div class="pipe-nome">Alertas</div>
+            <div class="pipe-detalhe">Dashboard</div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="divisor" aria-hidden="true"></div>
         
     
 </body>
