@@ -950,6 +950,79 @@ nav a:hover::after {
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.35);
 }
+
+/* ══════════════════════════════════════════
+   SEÇÃO 6: APLICAÇÃO NO DIA A DIA
+══════════════════════════════════════════ */
+ 
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  max-width: 700px;
+}
+ 
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 22px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--glow-cyan), var(--glow-violet), transparent);
+  opacity: 0.25;
+}
+ 
+.tl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 0 0 32px 0;
+  opacity: 0;
+  animation: cartaoRevelar 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+ 
+.tl-item:nth-child(1) { animation-delay: 0.1s; }
+.tl-item:nth-child(2) { animation-delay: 0.2s; }
+.tl-item:nth-child(3) { animation-delay: 0.3s; }
+.tl-item:nth-child(4) { animation-delay: 0.4s; }
+.tl-item:nth-child(5) { animation-delay: 0.5s; }
+ 
+.tl-num {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface-alt);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--glow-cyan);
+  z-index: 1;
+}
+ 
+.tl-conteudo {
+  padding-top: 10px;
+}
+ 
+.tl-conteudo h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+ 
+.tl-conteudo p {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.4);
+}
  
 /* ══════════════════════════════════════════
    RESPONSIVO GERAL 
@@ -1024,7 +1097,7 @@ nav a:hover::after {
     padding: 0;
     margin-left: 52px;
   }
-  
+
    .publico-card {
     flex: 1 1 100%;
   }
