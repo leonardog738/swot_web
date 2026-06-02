@@ -1388,45 +1388,72 @@ nav a:hover::after {
     flex: 1 1 100%;
   }
 
-  /* Seção 2: Tecnologia — pipeline em coluna */
+  /* Seção 2: Tecnologia — pipeline full width */
   .pipeline {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+  }
+
+  .pipe-etapa {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    min-width: unset;
+    width: 100%;
+    padding: 16px 20px;
+  }
+
+  .pipe-icone {
+    font-size: 26px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    width: 36px;
+    text-align: center;
   }
 
   .pipe-seta {
     transform: rotate(90deg);
-    padding: 0;
-    margin-left: 52px;
+    padding: 6px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    display: block;
+    margin: 0;
   }
 
-   .publico-card {
+  /* Seção 4: Público */
+  .publico-card {
     flex: 1 1 100%;
   }
 
+  /* Seção 5: Benefícios */
   .ben-card {
     flex: 1 1 100%;
   }
+
+  /* Rodapé */
   .rodape {
     grid-template-columns: 1fr;
     padding: 40px 24px 28px;
     gap: var(--gap-md);
   }
- 
+
   .rodape-logo {
     margin-bottom: 0;
   }
- 
+
   .rodape-info {
     text-align: left;
     align-items: flex-start;
   }
- 
+
   .rodape-links {
     justify-content: flex-start;
   }
- 
+
   .rodape-copy {
     padding: 12px 24px 24px;
   }
