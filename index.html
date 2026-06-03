@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="src/css/style.css">
+  <link id="tema-css" rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
     
@@ -22,6 +22,9 @@
 
     <!-- ══════════ NAVEGAÇÃO ══════════ -->
     <nav aria-label="Navegação principal">
+        <div class="logo" aria-hidden="true">
+            <span class="logo-texto">Space Connect</span>
+        </div>
         <a href="#hero">Início</a>
         <a href="#problema">Problema</a>
         <a href="#tecnologia">Tecnologia</a>
@@ -29,13 +32,22 @@
         <a href="#publico">Público</a>
         <a href="#beneficios">Benefícios</a>
         <a href="#aplicacao">Aplicação</a>
+      
+        <div id="seletor-estilos">
+            <img class="tema-btn-space" style="cursor: pointer;width: 65px;height: auto;" onclick="document.getElementById('tema-css').href = 'src/css/style.css';"src="src/assets/imgs/space.png" alt="Tema Space">
+            <img class="tema-btn-water" style="cursor: pointer;width: 65px;height: auto;" onclick="document.getElementById('tema-css').href = 'src/css/aquario.css';"src="src/assets/imgs/water.png" alt="Tema Aquario">
+            <img class="tema-btn-fiap" style="cursor: pointer;width: 50px;height: auto;" onclick="document.getElementById('tema-css').href = 'src/css/fiap.css';" src="src/assets/imgs/fiap.svg" alt="Tema FIAP">  
+        </div>
     </nav>
+    
+    
+    
 
     <!-- ══════════ HERO ══════════ -->
     <section class="hero" id="hero" aria-label="Apresentação do projeto Space Connect">
 
         <div class="title-block">
-        <div class="badge-projeto">Space Connect</div>
+        <div class="badge-projeto">Space Connect</div>    
         <h1>SWOT</h1>
         <div class="subtitle">A sua segurança em um único lugar</div>
             <p class="hero-desc">Dados do satélite NASA/CNES transformados em alertas de enchente para gestores públicos.</p>
