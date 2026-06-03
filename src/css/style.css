@@ -51,6 +51,22 @@
   --radius-full: 999px;
 }
 
+
+.tema-btn-space {
+  border-radius: 4px;
+  padding: 3px;
+  background: radial-gradient( rgba(3, 3, 3, 0.6));
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+}
+
+.tema-btn-water {
+  filter: drop-shadow(0 0 4px rgba(6, 182, 212, 0.6));
+}
+
+.tema-btn-fiap {
+  filter: drop-shadow(0 0 4px rgba(233, 10, 84, 0.6));
+}
+
 /* ══════════════════════════════════════════
    BASE
 ══════════════════════════════════════════ */
