@@ -389,7 +389,7 @@
             </div>
 
             <div class="tl-item">
-            <div class="tl-num" aria-hidden="true">5</div>
+            <div class="tl-num" aria-hidden="true">4</div>
             <div class="tl-conteudo">
                 <h3>Ação preventiva é tomada</h3>
                 <p>Equipes são posicionadas e moradores evacuados antes que a água chegue.</p>
@@ -401,6 +401,48 @@
 
     <div class="divisor" aria-hidden="true"></div>
 
+    <section class="secao" id="tela-inicial" aria-labelledby="titulo-aplicacao">
+      <span class="secao-rotulo">07 — Questionário</span>
+      <h2 id="titulo-aplicacao">Questionário</h2>
+      <p class="sub-h2">Responda às perguntas sobre o projeto SWOT.</p>
+      <div class="linha-destaque"></div>
+        
+
+        <div class="iniciar-formulario">
+            
+            <div class="rodape-logo" aria-hidden="true">
+            <div class="rodape-logo-anel"></div>
+            <div> <img class="satellite-img" style="width: 100px; height: auto;" src="src/assets/imgs/SWOT_spacecraft_model.png" alt="Logo Space Connect"> </div>
+            <span class="rodape-logo-nome">SWOT</span>
+            <span class="rodape-logo-sub">Space Connect</span>
+            </div>
+             <button class="btn-iniciar">Iniciar Questionário</button>
+
+        </div>
+
+    </section>
+
+    <section class="secao quiz-section" id="quiz" aria-labelledby="titulo-aplicacao">
+        <span class="secao-rotulo">07 — Questionário</span>
+        <h2 id="titulo-aplicacao">Questionário</h2>
+        <p class="sub-h2">Responda às perguntas sobre o projeto SWOT.</p>
+        <div class="linha-destaque"></div>
+
+        <div class="quiz-container">
+
+            <h3 id="pergunta"></h3>
+
+            <div class="grade-2x2" id="opcoes"></div>
+
+            <div class="quiz-nav">
+                <button class="quiz-nav-btn" id="prev-btn" disabled>Anterior</button>
+                <button class="quiz-nav-btn" id="next-btn" disabled>Próximo</button>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="divisor" aria-hidden="true"></div>
     <!-- ══════════ RODAPÉ ══════════ -->
     <div class="rodape-wrapper">
     <canvas class="rodape-canvas" id="estrelas-rodape" aria-hidden="true"></canvas>
@@ -452,5 +494,6 @@
   </main>
 
   <script src="src/js/script.js"></script>
+  <script src="src/js/formulario.js"></script>
 </body>
 </html>

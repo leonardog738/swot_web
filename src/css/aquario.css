@@ -1034,6 +1034,139 @@ nav a:hover::after {
 }
 
 /* ══════════════════════════════════════════
+   SEÇÃO 7 - FORMULARIO
+══════════════════════════════════════════ */
+.iniciar-formulario{
+  position: relative;
+  overflow: hidden;
+
+  max-width: 700px;
+  margin: 0 auto;
+
+  padding: var(--gap-xl) var(--gap-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-lg);
+
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-alt) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+
+ transition: border-color 1.5s, box-shadow 1.5s;
+}
+
+.iniciar-formulario:hover{
+  border-color: var(--border-glow);
+
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(124, 58, 237, 0.3) ;
+}
+
+.iniciar-formulario::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -125%;
+  width: 200%;
+  height: 150%;
+  background: radial-gradient(circle at center, var(--glow-cyan) 0%, transparent 70%);
+  animation: formularioGlow 3s ease-in-out infinite;
+  z-index: 0;
+  
+}
+
+.btn-iniciar{
+  cursor: pointer;
+
+  padding: 14px 32px;
+  position: relative;
+  z-index: 1;
+
+  border: 2px solid rgba(6, 182, 212, 0.15);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transition: background 2s, border-color 2s;
+
+}
+
+.btn-iniciar:hover{
+  background: var(--glow-cyan);
+ 
+  color: var(--deep);
+}
+
+.quiz-section {
+    display: none;
+}
+
+
+.grade-2x2 {
+  padding-top: var(--gap-xl);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-md);
+}
+
+.grade-2x2 .quiz-opcao {
+  flex: 1 1 calc(50% - var(--gap-md) / 2);
+  min-width: 240px;
+}
+
+.quiz-opcao {
+   cursor: pointer;
+  color: white;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 24px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: border-color 0.3s, transform 0.3s;
+  opacity: 0;
+  animation: cartaoRevelar 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.quiz-opcao:hover {
+  background: var(--glow-cyan);
+  border-color: var(--card-hover);
+  transform: translateY(-3px);
+}
+
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--gap-lg);
+}
+
+.quiz-nav button {
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.quiz-nav button:hover {
+   background: var(--glow-cyan);
+  color: white;
+}
+.quiz-opcao.selecionada {
+    border: 2px solid var(--glow-cyan);
+    transform: scale(1.03);
+}
+/* ══════════════════════════════════════════
    RODAPÉ — Space Connect
 ══════════════════════════════════════════ */
 .rodape-wrapper {
